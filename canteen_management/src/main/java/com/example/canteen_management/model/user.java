@@ -1,5 +1,6 @@
 package com.example.canteen_management.model;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 
@@ -9,6 +10,8 @@ public class user {
         private int userId;
         private String userName;
         private String userPassword;
+        
+        @Column(unique = true)
         private String userPhone;
     
         public user(int userId, String userName,String userPassword, String userPhone) {

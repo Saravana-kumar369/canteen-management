@@ -1,8 +1,11 @@
 package com.example.canteen_management.model;
 
 import jakarta.persistence.*;
+import lombok.Data;
+
 import java.time.LocalDate;
 
+@Data
 @Entity
 public class orderdetails {
 

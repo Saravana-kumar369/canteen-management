@@ -1,4 +1,4 @@
-package com.example.canteen_management.Repo;
+package com.example.canteen_management.repo;
 
 import com.example.canteen_management.model.orderdetails;
 
@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 
 
 @Repository
-public interface OrderDetailsRepository extends JpaRepository<orderdetails, Long> {
-    List<orderdetails> findByUserUserId(Long userId);
+public interface OrderDetailsRepository extends JpaRepository<orderdetails, Integer> {
+    // List<orderdetails> findByUserUserId(Integer userId);
 }
 
