@@ -2,7 +2,7 @@ package com.example.canteen_management.repo;
 
 import com.example.canteen_management.model.orderdetails;
 
-import java.util.List;
+
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
