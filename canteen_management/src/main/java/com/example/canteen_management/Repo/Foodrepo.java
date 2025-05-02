@@ -1,4 +1,4 @@
-package com.example.canteen_management.repo;
+package com.example.canteen_management.Repo;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;

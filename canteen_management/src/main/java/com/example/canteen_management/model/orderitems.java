@@ -13,7 +13,7 @@ public class orderitems {
 
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
-        private int ItemId;
+        private Integer ItemId;
         
         @ManyToOne(cascade = CascadeType.ALL)
         @JoinColumn(name = "orderId")
@@ -24,24 +24,28 @@ public class orderitems {
         private Fooddetails foodId;
 
         private int quantity;
-
-        private String orderDate;
-
-        private String status;
-
-        private String paymentStatus;
-
+        private int subtotal;
     
-        public orderitems(int ItemId,orderdetails orderId, Fooddetails foodId, int quantity, String orderDate, String status, String paymentStatus) {
+        public int getSubtotal() {
+            return subtotal;
+        }
+
+        public void setSubtotal(int subtotal) {
+            this.subtotal = subtotal;
+        }
+
+        public orderitems(int ItemId,orderdetails orderId, Fooddetails foodId, int quantity, String orderDate, String status, String paymentStatus,int subtotal) {
             this.ItemId = ItemId;
             this.orderId = orderId;
             this.foodId = foodId;
             this.quantity = quantity;
-            this.orderDate = orderDate;
-            this.status = status;
-            this.paymentStatus = paymentStatus;
+            this.subtotal = subtotal;
         }
     
+        public orderitems() {
+            //TODO Auto-generated constructor stub
+        }
+
         public int getItemId() {
             return ItemId;
         }
@@ -75,28 +79,11 @@ public class orderitems {
             this.quantity = quantity;
         }
     
-        public String getOrderDate() {
-            return orderDate;
-        }
     
-        public void setOrderDate(String orderDate) {
-            this.orderDate = orderDate;
-        }
-    
-        public String getStatus() {
-            return status;
-        }
-    
-        public void setStatus(String status) {
-            this.status = status;
-        }
-    
-        public String getPaymentStatus() {
-            return paymentStatus;
-        }
-    
-        public void setPaymentStatus(String paymentStatus) {
-            this.paymentStatus = paymentStatus;
+
+        public orderitems getOrderDetails() {
+            // TODO Auto-generated method stub
+            throw new UnsupportedOperationException("Unimplemented method 'getOrderDetails'");
         }
     
 }
