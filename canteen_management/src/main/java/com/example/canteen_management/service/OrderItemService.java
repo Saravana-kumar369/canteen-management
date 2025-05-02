@@ -1,0 +1,48 @@
+package com.example.canteen_management.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.example.canteen_management.model.Fooddetails;
+import com.example.canteen_management.model.orderitems;
+import com.example.canteen_management.Repo.Foodrepo;
+import com.example.canteen_management.Repo.orderitemsRepo;
+
+// @Service
+// public class itemservice {
+//     @Autowired
+//     private Servicerepo servicerepo;
+    
+//     public List<orderitems> getitems(int orderid){
+//         return servicerepo.getitems(orderid);
+//     }
+// }
+
+@Service
+public class OrderItemService {
+    @Autowired
+    private orderitemsRepo orderItemRepository;
+
+    @Autowired
+    private Foodrepo frepo;
+    public orderitems saveItem(orderitems item) {
+        Fooddetails entity=frepo.findById(item.getFoodId().getFoodid()).orElseThrow();
+        Integer price=entity.getPrice();
+        Integer total=price*item.getQuantity();
+        orderitems oent=new orderitems();
+        oent.setSubtotal(total);
+        oent.setQuantity(item.getQuantity());
+        oent.setOrderId(item.getOrderId());
+        oent.setFoodId(item.getFoodId());
+        return orderItemRepository.save(oent);
+    }
+
+    public List<orderitems> getItemsByOrderId(int orderId) {
+        return orderItemRepository.findAll()
+                .stream()
+                .filter(i -> i.getOrderDetails().getOrderId().equals(orderId))
+                .toList();
+    }
+}

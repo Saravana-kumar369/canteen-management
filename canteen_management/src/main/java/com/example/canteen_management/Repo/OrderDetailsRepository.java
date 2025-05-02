@@ -1,4 +1,4 @@
-package com.example.canteen_management.repo;
+package com.example.canteen_management.Repo;
 
 import com.example.canteen_management.model.orderdetails;
 

@@ -3,7 +3,7 @@ package com.example.canteen_management.model;
 import jakarta.persistence.*;
 import lombok.Data;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Data
 @Entity
@@ -13,11 +13,14 @@ public class orderdetails {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int orderId;
 
-    private LocalDate orderDate;
+    private LocalDateTime orderDate;
     
-    public orderdetails(int orderId, LocalDate orderDate) {
+    public orderdetails(int orderId, LocalDateTime orderDate) {
         this.orderId = orderId;
         this.orderDate = orderDate;
+    }
+
+    public orderdetails() {
     }
 
     public int getOrderId() {
@@ -28,11 +31,11 @@ public class orderdetails {
         this.orderId = orderId;
     }
 
-    public LocalDate getOrderDate() {
+    public LocalDateTime getOrderDate() {
         return orderDate;
     }
 
-    public void setOrderDate(LocalDate orderDate) {
+    public void setOrderDate(LocalDateTime orderDate) {
         this.orderDate = orderDate;
     }
 }
