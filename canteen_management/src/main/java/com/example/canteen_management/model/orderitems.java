@@ -34,7 +34,7 @@ public class orderitems {
             this.subtotal = subtotal;
         }
 
-        public orderitems(int ItemId,orderdetails orderId, Fooddetails foodId, int quantity, String orderDate, String status, String paymentStatus,int subtotal) {
+        public orderitems(int ItemId,orderdetails orderId, Fooddetails foodId, int quantity, String orderDate,int subtotal) {
             this.ItemId = ItemId;
             this.orderId = orderId;
             this.foodId = foodId;

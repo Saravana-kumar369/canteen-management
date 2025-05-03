@@ -7,8 +7,8 @@ import org.springframework.stereotype.Service;
 
 import com.example.canteen_management.model.Fooddetails;
 import com.example.canteen_management.model.orderitems;
-import com.example.canteen_management.Repo.Foodrepo;
-import com.example.canteen_management.Repo.orderitemsRepo;
+import com.example.canteen_management.repo.Foodrepo;
+import com.example.canteen_management.repo.orderitemsRepo;
 
 // @Service
 // public class itemservice {
@@ -46,3 +46,4 @@ public class OrderItemService {
                 .toList();
     }
 }
+    

@@ -1,7 +1,7 @@
 package com.example.canteen_management.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.example.canteen_management.Repo.OrderDetailsRepository;
+import com.example.canteen_management.repo.OrderDetailsRepository;
 import com.example.canteen_management.model.orderdetails;
 
 import java.time.LocalDate;

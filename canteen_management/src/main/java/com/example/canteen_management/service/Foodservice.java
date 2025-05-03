@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.canteen_management.model.Fooddetails;
-import com.example.canteen_management.Repo.Foodrepo;
+import com.example.canteen_management.repo.Foodrepo;
 
 import jakarta.transaction.Transactional;
 
