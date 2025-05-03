@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 // import com.example.canteen_management.model.orderdetails;
-import com.example.canteen_management.model.orderitems;
+import com.example.canteen_management.model.Orderitems;
 import com.example.canteen_management.service.OrderItemService;
 
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,12 +26,12 @@ public class Orderitemcontroller {
     private OrderItemService itemservice;
 
     @GetMapping("/id/{orderId}")
-    public List<orderitems> getOrderId(@PathVariable Integer orderId) {
+    public List<Orderitems> getOrderId(@PathVariable Integer orderId) {
         return itemservice.getItemsByOrderId(orderId);
     }
 
     @PostMapping("/add")
-    public orderitems saveOrderitems(@RequestBody orderitems item) {
+    public Orderitems saveOrderitems(@RequestBody Orderitems item) {
         return itemservice.saveItem(item);
     }
 }

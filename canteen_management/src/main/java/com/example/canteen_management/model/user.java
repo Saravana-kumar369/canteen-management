@@ -2,19 +2,23 @@ package com.example.canteen_management.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
-public class user {
+public class User {
         @Id
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
         private int userId;
+
         private String userName;
         private String userPassword;
         
         @Column(unique = true)
         private String userPhone;
     
-        public user(int userId, String userName,String userPassword, String userPhone) {
+        public User(int userId, String userName,String userPassword, String userPhone) {
             this.userId = userId;
             this.userName = userName;
             this.userPassword = userPassword;

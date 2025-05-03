@@ -2,7 +2,7 @@ package com.example.canteen_management.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.example.canteen_management.repo.OrderDetailsRepository;
-import com.example.canteen_management.model.orderdetails;
+import com.example.canteen_management.model.Orderdetails;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -14,17 +14,17 @@ public class orderdetailsService {
     @Autowired
     private OrderDetailsRepository orderDetailsRepository;
 
-    public orderdetails saveOrder() {
-        orderdetails oentity=new orderdetails();
+    public Orderdetails saveOrder() {
+        Orderdetails oentity=new Orderdetails();
         oentity.setOrderDate(LocalDateTime.now());
         return orderDetailsRepository.save(oentity);
     }
 
-    public List<orderdetails> getAllOrders() {
+    public List<Orderdetails> getAllOrders() {
         return orderDetailsRepository.findAll();
     }
 
-    public orderdetails getOrderById(int id) {
+    public Orderdetails getOrderById(int id) {
         return orderDetailsRepository.findById(id).orElse(null);
     }
 }

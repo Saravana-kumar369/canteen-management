@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.canteen_management.model.Fooddetails;
-import com.example.canteen_management.model.orderitems;
+import com.example.canteen_management.model.Orderitems;
 import com.example.canteen_management.repo.Foodrepo;
 import com.example.canteen_management.repo.orderitemsRepo;
 
@@ -27,11 +27,11 @@ public class OrderItemService {
 
     @Autowired
     private Foodrepo frepo;
-    public orderitems saveItem(orderitems item) {
+    public Orderitems saveItem(Orderitems item) {
         Fooddetails entity=frepo.findById(item.getFoodId().getFoodid()).orElseThrow();
         Integer price=entity.getPrice();
         Integer total=price*item.getQuantity();
-        orderitems oent=new orderitems();
+        Orderitems oent=new Orderitems();
         oent.setSubtotal(total);
         oent.setQuantity(item.getQuantity());
         oent.setOrderId(item.getOrderId());
@@ -39,7 +39,7 @@ public class OrderItemService {
         return orderItemRepository.save(oent);
     }
 
-    public List<orderitems> getItemsByOrderId(int orderId) {
+    public List<Orderitems> getItemsByOrderId(int orderId) {
         return orderItemRepository.findAll()
                 .stream()
                 .filter(i -> i.getOrderDetails().getOrderId().equals(orderId))

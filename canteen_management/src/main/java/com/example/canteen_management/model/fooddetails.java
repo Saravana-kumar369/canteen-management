@@ -26,7 +26,7 @@ public class Fooddetails {
 
     private boolean isAvailable;
     @OneToMany(mappedBy = "foodId")
-    private List<orderitems> orderItemsList;
+    private List<Orderitems> orderItemsList;
     
     public Fooddetails() {}
 
