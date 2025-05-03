@@ -1,9 +1,6 @@
 package com.example.canteen_management.model;
 import java.util.List;
 
-import org.antlr.v4.runtime.misc.NotNull;
-
-// import jakarta.annotation.Generated;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -29,7 +26,7 @@ public class Fooddetails {
 
     private boolean isAvailable;
     @OneToMany(mappedBy = "foodId")
-    private List<orderitems> orderItemsList;
+    private List<Orderitems> orderItemsList;
     
     public Fooddetails() {}
 

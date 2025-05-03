@@ -9,7 +9,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 
 @Entity
-public class orderitems {
+public class Orderitems {
 
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,7 +17,7 @@ public class orderitems {
         
         @ManyToOne(cascade = CascadeType.ALL)
         @JoinColumn(name = "orderId")
-        private orderdetails orderId;
+        private Orderdetails orderId;
 
         @ManyToOne(cascade = CascadeType.ALL)
         @JoinColumn(name = "foodId")
@@ -34,7 +34,7 @@ public class orderitems {
             this.subtotal = subtotal;
         }
 
-        public orderitems(int ItemId,orderdetails orderId, Fooddetails foodId, int quantity, String orderDate, String status, String paymentStatus,int subtotal) {
+        public Orderitems(int ItemId,Orderdetails orderId, Fooddetails foodId, int quantity, String orderDate,int subtotal) {
             this.ItemId = ItemId;
             this.orderId = orderId;
             this.foodId = foodId;
@@ -42,7 +42,7 @@ public class orderitems {
             this.subtotal = subtotal;
         }
     
-        public orderitems() {
+        public Orderitems() {
             //TODO Auto-generated constructor stub
         }
 
@@ -55,11 +55,11 @@ public class orderitems {
         }
 
         // Getters and Setters for each field
-        public orderdetails getOrderId() {
+        public Orderdetails getOrderId() {
             return orderId;
         }
     
-        public void setOrderId(orderdetails orderId) {
+        public void setOrderId(Orderdetails orderId) {
             this.orderId = orderId;
         }
     
@@ -81,7 +81,7 @@ public class orderitems {
     
     
 
-        public orderitems getOrderDetails() {
+        public Orderitems getOrderDetails() {
             // TODO Auto-generated method stub
             throw new UnsupportedOperationException("Unimplemented method 'getOrderDetails'");
         }

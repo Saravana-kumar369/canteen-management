@@ -1,10 +1,10 @@
-package com.example.canteen_management.Repo;
+package com.example.canteen_management.repo;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.example.canteen_management.model.user;
+import com.example.canteen_management.model.User;
 
 @Repository
-public interface userRepo extends JpaRepository <user,Integer> {
-    user findByUserId(int userId);
+public interface UserRepo extends JpaRepository <User,Integer> {
+    
 }

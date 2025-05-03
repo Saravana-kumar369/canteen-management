@@ -1,4 +1,4 @@
-package com.example.canteen_management.Repo;
+package com.example.canteen_management.repo;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
@@ -7,7 +7,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import com.example.canteen_management.model.Fooddetails;
-import java.util.List;
+
 
 @Repository
 public interface Foodrepo extends JpaRepository<Fooddetails, Integer> {

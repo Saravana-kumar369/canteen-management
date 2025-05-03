@@ -1,15 +1,15 @@
-package com.example.canteen_management.Repo;
+package com.example.canteen_management.repo;
 
-import com.example.canteen_management.model.orderdetails;
+import com.example.canteen_management.model.Orderdetails;
 
-import java.util.List;
+
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 
 @Repository
-public interface OrderDetailsRepository extends JpaRepository<orderdetails, Integer> {
+public interface OrderDetailsRepository extends JpaRepository<Orderdetails, Integer> {
     // List<orderdetails> findByUserUserId(Integer userId);
 }
 
