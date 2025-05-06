@@ -17,6 +17,10 @@ public class User {
         
         @Column(unique = true)
         private String userPhone;
+
+        public User() {
+            // Default constructor
+        }
     
         public User(int userId, String userName,String userPassword, String userPhone) {
             this.userId = userId;

@@ -7,11 +7,11 @@ public class Paymentservice {
 
     private PaymentRepo paymentrepo;
 
-    public void savepayment(Payment paymentdata){
-        paymentrepo.save(paymentdata);
-    }
-
     public Payment getpaymentByUserid(int user){
         return paymentrepo.findByUserId(user);
+    }
+
+    public Payment savePayment(Payment payment) {
+        return paymentrepo.save(payment);
     }
 }

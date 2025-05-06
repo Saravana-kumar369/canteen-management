@@ -1,5 +1,6 @@
 package com.example.canteen_management.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +8,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.canteen_management.DTO.Orderitemsdto;
 // import com.example.canteen_management.model.orderdetails;
 import com.example.canteen_management.model.Orderitems;
 import com.example.canteen_management.service.OrderItemService;
@@ -31,7 +33,8 @@ public class Orderitemcontroller {
     }
 
     @PostMapping("/add")
-    public Orderitems saveOrderitems(@RequestBody Orderitems item) {
+    public String saveOrderitems(@RequestBody ArrayList<Orderitemsdto> item) {
+        System.out.println("hello");
         return itemservice.saveItem(item);
     }
 }

@@ -1,13 +1,17 @@
 package com.example.canteen_management.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.example.canteen_management.DTO.Orderitemsdto;
 import com.example.canteen_management.model.Fooddetails;
+import com.example.canteen_management.model.Orderdetails;
 import com.example.canteen_management.model.Orderitems;
 import com.example.canteen_management.repo.Foodrepo;
+import com.example.canteen_management.repo.OrderDetailsRepository;
 import com.example.canteen_management.repo.OrderitemsRepo;
 
 // @Service
@@ -27,16 +31,25 @@ public class OrderItemService {
 
     @Autowired
     private Foodrepo frepo;
-    public Orderitems saveItem(Orderitems item) {
-        Fooddetails entity=frepo.findById(item.getFoodId().getFoodid()).orElseThrow();
-        Integer price=entity.getPrice();
-        Integer total=price*item.getQuantity();
+
+    @Autowired
+    private OrderDetailsRepository orepo;
+    public String saveItem(ArrayList<Orderitemsdto> item) {
         Orderitems oent=new Orderitems();
-        oent.setSubtotal(total);
-        oent.setQuantity(item.getQuantity());
-        oent.setOrderId(item.getOrderId());
-        oent.setFoodId(item.getFoodId());
-        return orderItemRepository.save(oent);
+        int length=item.size();
+        for(int ind=0;ind<length;ind++)
+        {
+            Integer foodid=item.get(ind).getFoodId();
+            Fooddetails food=frepo.findById(foodid).orElseThrow();
+            oent.setFoodId(food);
+            Integer orderid=item.get(ind).getOrderId();
+            Orderdetails order=orepo.findById(orderid).orElseThrow();
+            oent.setOrderId(order);
+            oent.setQuantity(item.get(ind).getQuantity());
+            oent.setSubtotal(item.get(ind).getSubtotal());
+            orderItemRepository.save(oent);
+        }
+        return "Added";
     }
 
     public List<Orderitems> getItemsByOrderId(int orderId) {

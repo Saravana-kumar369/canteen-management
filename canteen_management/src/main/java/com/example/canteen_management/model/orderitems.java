@@ -26,6 +26,10 @@ public class Orderitems {
         private int quantity;
         private int subtotal;
     
+        
+        public Orderitems() {
+        }
+
         public int getSubtotal() {
             return subtotal;
         }
@@ -40,10 +44,6 @@ public class Orderitems {
             this.foodId = foodId;
             this.quantity = quantity;
             this.subtotal = subtotal;
-        }
-    
-        public Orderitems() {
-            //TODO Auto-generated constructor stub
         }
 
         public int getItemId() {
